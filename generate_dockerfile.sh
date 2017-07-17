@@ -55,7 +55,7 @@ echo "COPY HoneyPy-0.6.2 /opt/HoneyPy" >> $DOCKERFILE
 #echo "    cd /opt && unzip master.zip && \\" >> $DOCKERFILE
 #echo "    cd /opt && mv HoneyPy-master HoneyPy && \\" >> $DOCKERFILE
 #echo "    cd /opt && rm master.zip && \\" >> $DOCKERFILE
-echo "    chmod +x /opt/HoneyPy/Honey.py" >> $DOCKERFILE
+echo "RUN chmod +x /opt/HoneyPy/Honey.py" >> $DOCKERFILE
 #echo "COPY etc/honeypy.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
 #echo "COPY etc/services.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
 echo "RUN pipreqs --force /opt/HoneyPy && \\" >> $DOCKERFILE
