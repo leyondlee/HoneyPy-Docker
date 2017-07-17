@@ -34,7 +34,8 @@ else
     echo "RUN apt-get update && \\" >> $DOCKERFILE
     echo "    apt-get install -y wget unzip python python-pip python-requests python-twisted && \\" >> $DOCKERFILE
     echo "    apt-get clean && \\" >> $DOCKERFILE
-    echo "    pip install pipreqs" >> $DOCKERFILE
+    echo "    pip install pipreqs && \\" >> $DOCKERFILE
+	echo "    pip install dnslib" >> $DOCKERFILE
 fi
 
 # create user
@@ -49,13 +50,14 @@ fi
 
 # setup HoneyPy
 echo "RUN mkdir -p /opt && \\" >> $DOCKERFILE
-echo "    cd /opt && wget https://github.com/foospidy/HoneyPy/archive/master.zip && \\" >> $DOCKERFILE
-echo "    cd /opt && unzip master.zip && \\" >> $DOCKERFILE
-echo "    cd /opt && mv HoneyPy-master HoneyPy && \\" >> $DOCKERFILE
-echo "    cd /opt && rm master.zip && \\" >> $DOCKERFILE
+echo "COPY HoneyPy-0.6.2 /opt/HoneyPy" >> $DOCKERFILE
+#echo "    cd /opt && wget https://github.com/foospidy/HoneyPy/archive/master.zip && \\" >> $DOCKERFILE
+#echo "    cd /opt && unzip master.zip && \\" >> $DOCKERFILE
+#echo "    cd /opt && mv HoneyPy-master HoneyPy && \\" >> $DOCKERFILE
+#echo "    cd /opt && rm master.zip && \\" >> $DOCKERFILE
 echo "    chmod +x /opt/HoneyPy/Honey.py" >> $DOCKERFILE
-echo "COPY etc/honeypy.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
-echo "COPY etc/services.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
+#echo "COPY etc/honeypy.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
+#echo "COPY etc/services.cfg /opt/HoneyPy/etc/" >> $DOCKERFILE
 echo "RUN pipreqs --force /opt/HoneyPy && \\" >> $DOCKERFILE
 echo "    chown -R honey:honey /opt/HoneyPy" >> $DOCKERFILE
 
