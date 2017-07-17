@@ -80,10 +80,10 @@ echo "USER honey" >> $DOCKERFILE
 echo "WORKDIR /opt/HoneyPy" >> $DOCKERFILE
 
 # get configured ports and generate expose list
-TCP_LPORTS=(`cat etc/services.cfg | grep -E "low_port.*tcp" | sed -e 's/^.*://'`)
-TCP_HPORTS=(`cat etc/services.cfg | grep -E "^\s?port.*tcp" | sed -e 's/^.*://'`)
-UDP_LPORTS=(`cat etc/services.cfg | grep -E "low_port.*udp" | sed -e 's/^.*://'`)
-UDP_HPORTS=(`cat etc/services.cfg | grep -E "^\s?port.*udp" | sed -e 's/^.*://'`)
+TCP_LPORTS=(`cat HoneyPy-0.6.2/etc/services.cfg | grep -E "low_port.*tcp" | sed -e 's/^.*://'`)
+TCP_HPORTS=(`cat HoneyPy-0.6.2/etc/services.cfg | grep -E "^\s?port.*tcp" | sed -e 's/^.*://'`)
+UDP_LPORTS=(`cat HoneyPy-0.6.2/etc/services.cfg | grep -E "low_port.*udp" | sed -e 's/^.*://'`)
+UDP_HPORTS=(`cat HoneyPy-0.6.2/etc/services.cfg | grep -E "^\s?port.*udp" | sed -e 's/^.*://'`)
 
 if [ -f $PORTMAP_FILE ]
 then
