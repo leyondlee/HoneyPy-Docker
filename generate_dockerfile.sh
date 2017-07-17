@@ -49,7 +49,7 @@ else
 fi
 
 # setup HoneyPy
-echo "RUN mkdir -p /opt && \\" >> $DOCKERFILE
+echo "RUN mkdir -p /opt" >> $DOCKERFILE
 echo "COPY HoneyPy-0.6.2 /opt/HoneyPy" >> $DOCKERFILE
 #echo "    cd /opt && wget https://github.com/foospidy/HoneyPy/archive/master.zip && \\" >> $DOCKERFILE
 #echo "    cd /opt && unzip master.zip && \\" >> $DOCKERFILE

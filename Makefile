@@ -2,25 +2,25 @@ PORTSMAP := $(shell touch ports.map; cat ports.map;)
 
 build:
 	./generate_dockerfile.sh
-	docker build -t foospidy/honeypy:latest .
+	docker build -t hosttool-honeypy .
 
 build-no-cache:
 	./generate_dockerfile.sh
-	docker build --no-cache -t foospidy/honeypy:latest .
+	docker build --no-cache -t hosttool-honeypy .
 
 build-debian:
 	./generate_dockerfile.sh debian
-	docker build -t foospidy/honeypy:latest .
+	docker build -t hosttool-honeypy .
 
 build-debian-no-cache:
 	./generate_dockerfile.sh debian
-	docker build --no-cache -t foospidy/honeypy:latest .
+	docker build --no-cache -t hosttool-honeypy .
 
 run:
-	docker run $(PORTSMAP) --rm -i -t foospidy/honeypy:latest /opt/HoneyPy/Honey.py
+	docker run $(PORTSMAP) --rm -i -t hosttool-honeypy /opt/HoneyPy/Honey.py
 
 run-daemon:
-	docker run $(PORTSMAP) -d foospidy/honeypy:latest /opt/HoneyPy/Honey.py -d
+	docker run $(PORTSMAP) -d hosttool-honeypy /opt/HoneyPy/Honey.py -d
 
 clean:
 	# WARNING: this removes all docker images.
