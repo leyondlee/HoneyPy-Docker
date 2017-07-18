@@ -3,7 +3,7 @@
 DOCKERFILE=Dockerfile
 PORTMAP_FILE=ports.map
 IPADDRESS='0.0.0.0'
-OS='alpine'
+OS='debian:jessie-slim'
 
 if [ ! -z $1 ];
 then
