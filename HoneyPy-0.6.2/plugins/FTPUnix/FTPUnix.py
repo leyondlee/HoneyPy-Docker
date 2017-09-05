@@ -42,6 +42,7 @@ class FTPUnix(protocol.Protocol):
 			else:
 				self.state = self.UNAUTH
 				self.tx('230 Login successful.\n')
+				self.tx('227 Entering Passive Mode')
 		else:
 			self.tx('451 Requested action aborted. Local error in processing.')
 		#############################################################################
